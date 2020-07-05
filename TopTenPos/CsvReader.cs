@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +18,17 @@ namespace TopTenPos
         public Country[] ReadFirstNCountries(int nCountries)
         {
             Country[] countries = new Country[nCountries];
+            using(StreamReader sr = new StreamReader(_csvFilePath))
+            {
+                //read header line
+                sr.ReadLine();
+                
+                for(int i=0; i<nCountries; i++)
+                {
+                    string csvLine = sr.ReadLine();
+                    countries[i] = ReadCountryFromCsvLine(csvLine);
+                }
+            }
             return countries;
         }
         //20.Parsing a CSV Line with String.Split()
