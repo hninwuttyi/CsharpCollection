@@ -10,15 +10,16 @@ namespace DaysOfWeekList
     {
         static void Main(string[] args)
         {
-            List<string> DaysOfWeek = new List<string>()
-            DaysOfWeek.Add("Monday");
-            DaysOfWeek.Add("Tuesday");
-            DaysOfWeek.Add("Wednesday");
-            DaysOfWeek.Add("Thursday");
-            DaysOfWeek.Add("Friday");
-            DaysOfWeek.Add("Saturday");
-            DaysOfWeek.Add("Sunday");
-
+            List<string> DaysOfWeek = new List<string>
+            {
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday"
+            };
         }
     }
 }
