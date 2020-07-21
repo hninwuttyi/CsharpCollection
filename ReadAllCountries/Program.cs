@@ -13,7 +13,7 @@ namespace ReadAllCountries
             string filePath = @"C:\SolidCad\Learning\PluralSight_Courses\Beginning C# Collections\csharp-collections-beginning\Pop by Largest Final.csv";
             CsvReader reader = new CsvReader(filePath);
 
-            Country[] Countries = reader.ReadFirstNCountries(10);
+            List<Country> Countries = reader.ReadAllCountries();
 
             foreach (Country country in Countries)
             {
