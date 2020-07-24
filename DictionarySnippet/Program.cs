@@ -17,8 +17,8 @@ namespace DictionarySnippet
             countries.Add(norway.Code, norway);
             countries.Add(finland.Code, finland);
 
-            Country selectedCountry = countries["NOR"];
-            Console.WriteLine(selectedCountry.Name);
+            foreach (var country in countries)
+                Console.WriteLine(country.Name);
         }
     }
 }
