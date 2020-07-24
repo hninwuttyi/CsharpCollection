@@ -14,6 +14,10 @@ namespace ReadAllCountries
             CsvReader reader = new CsvReader(filePath);
 
             List<Country> Countries = reader.ReadAllCountries();
+            Country liliput = new Country("Liliput","LIL","somewhere",2000000);
+            int liliputIndex = Countries.FindIndex(x => x.Population < 2000000);
+            Countries.Insert(liliputIndex, liliput);
+            Countries.RemoveAt(liliputIndex);
 
             foreach (Country country in Countries)
             {
