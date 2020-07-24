@@ -19,7 +19,7 @@ namespace ReadAllCountries
             {
                 Console.WriteLine($"{country.Population}: {country.Name}");
             }
-
+            Console.WriteLine($"{Countries.Count} countries");
         }
     }
 }
