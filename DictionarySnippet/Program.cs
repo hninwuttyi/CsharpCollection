@@ -19,6 +19,13 @@ namespace DictionarySnippet
 
             foreach (var country in countries.Values)
                 Console.WriteLine(country.Name);
+
+
+            //List<Country> countryList = new List<Country>();
+            //countryList.Add(norway);
+            //countryList.Add(norway);
+            //foreach (Country country in countryList)
+            //    Console.WriteLine(country.Name);
         }
     }
 }
