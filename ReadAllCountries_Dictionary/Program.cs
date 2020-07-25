@@ -13,17 +13,15 @@ namespace ReadAllCountries_Dictionary
             string filePath = @"C:\SolidCad\Learning\PluralSight_Courses\Beginning C# Collections\csharp-collections-beginning\Pop by Largest Final.csv";
             CsvReader reader = new CsvReader(filePath);
 
-            List<Country> Countries = reader.ReadAllCountries();
-            Country liliput = new Country("Liliput","LIL","somewhere",2000000);
-            int liliputIndex = Countries.FindIndex(x => x.Population < 2000000);
-            Countries.Insert(liliputIndex, liliput);
-            Countries.RemoveAt(liliputIndex);
+            Dictionary<string,Country> Countries = reader.ReadAllCountries();
+            Console.WriteLine("Which country do you want look up?");
+            string userInput = Console.ReadLine();
 
-            foreach (Country country in Countries)
-            {
-                Console.WriteLine($"{country.Population}: {country.Name}");
-            }
-            Console.WriteLine($"{Countries.Count} countries");
+            bool gotCountry = Countries.TryGetValue(userInput, out Country country);
+            if (!gotCountry)
+                Console.WriteLine($"Sorry, there is no country with the code, {userInput}");
+            else
+                Console.WriteLine($"{country.Name} has population {country.Population}.");
         }
     }
 }
