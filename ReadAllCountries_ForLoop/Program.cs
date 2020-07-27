@@ -24,9 +24,10 @@ namespace ReadAllCountries_ForLoop
 
             int maxToDisplay = userinput;
             //foreach (Country country in Countries)
-            for (int i=0; i< Countries.Count; i++)
+            for (int i= Countries.Count - 1; i >= 0; i--)
             {
-                if(i>0 && (i%maxToDisplay == 0))
+                int displayIndex = Countries.Count - 1 - i;
+                if(displayIndex > 0 && (displayIndex % maxToDisplay == 0))
                 {
                     Console.WriteLine("Hit return to continue, anything else to quick > ");
                     if (Console.ReadLine() != "")
@@ -34,7 +35,7 @@ namespace ReadAllCountries_ForLoop
                 }
 
                 Country country = Countries[i];
-                Console.WriteLine($"{i + 1}    {country.Population}: {country.Name}");
+                Console.WriteLine($"{displayIndex + 1}    {country.Population}: {country.Name}");
             }
             Console.WriteLine($"{Countries.Count} countries");
         }
