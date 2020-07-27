@@ -14,6 +14,7 @@ namespace ReadAllCountries_ForLoop
             CsvReader reader = new CsvReader(filePath);
 
             List<Country> Countries = reader.ReadAllCountries();
+            reader.RemoveCommaCountry(Countries);
             Console.Write("Enter no. of countries to display> ");
             bool inputIsInt = int.TryParse(Console.ReadLine(), out int userinput);
             if (!inputIsInt || userinput <= 0)
@@ -24,10 +25,10 @@ namespace ReadAllCountries_ForLoop
 
             int maxToDisplay = userinput;
             //foreach (Country country in Countries)
-            for (int i= Countries.Count - 1; i >= 0; i--)
+            for (int i = 0;  i < Countries.Count - 1; i++)
             {
-                int displayIndex = Countries.Count - 1 - i;
-                if(displayIndex > 0 && (displayIndex % maxToDisplay == 0))
+                //int displayIndex = Countries.Count - 1 - i;
+                if(i > 0 && (i % maxToDisplay == 0))
                 {
                     Console.WriteLine("Hit return to continue, anything else to quick > ");
                     if (Console.ReadLine() != "")
@@ -35,7 +36,7 @@ namespace ReadAllCountries_ForLoop
                 }
 
                 Country country = Countries[i];
-                Console.WriteLine($"{displayIndex + 1}    {country.Population}: {country.Name}");
+                Console.WriteLine($"{i + 1}    {country.Population}: {country.Name}");
             }
             Console.WriteLine($"{Countries.Count} countries");
         }

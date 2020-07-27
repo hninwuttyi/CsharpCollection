@@ -31,6 +31,16 @@ namespace ReadAllCountries_ForLoop
             }
             return countries;
         }
+
+        public void RemoveCommaCountry(List<Country> countries)
+        {
+            for (int i = 0; i < countries.Count; i++)
+            {
+                if (countries[i].Name.Contains(','))
+                    countries.RemoveAt(i);
+            }
+        }
+
         //20.Parsing a CSV Line with String.Split()
         public Country ReadCountryFromCsvLine(string csvLine)
         {
