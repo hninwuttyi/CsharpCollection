@@ -34,7 +34,7 @@ namespace ReadAllCountries_ForLoop
                 }
 
                 Country country = Countries[i];
-                Console.WriteLine($"{country.Population}: {country.Name}");
+                Console.WriteLine($"{i + 1}    {country.Population}: {country.Name}");
             }
             Console.WriteLine($"{Countries.Count} countries");
         }
