@@ -14,14 +14,22 @@ namespace ReadAllCountries_ForLoop
             CsvReader reader = new CsvReader(filePath);
 
             List<Country> Countries = reader.ReadAllCountries();
+            Console.Write("Enter no. of countries to display> ");
+            bool inputIsInt = int.TryParse(Console.ReadLine(), out int userinput);
+            if (!inputIsInt || userinput <= 0)
+            {
+                Console.WriteLine("You must type in a +ve integer. exiting");
+                return;
+            }
 
+            int maxToDisplay = Math.Min(userinput, Countries.Count);
             //foreach (Country country in Countries)
-            for(int i=0; i<Countries.Count; i++)
+            for(int i=0; i< maxToDisplay; i++)
             {
                 Country country = Countries[i];
                 Console.WriteLine($"{country.Population}: {country.Name}");
             }
             Console.WriteLine($"{Countries.Count} countries");
         }
-    }
+    }  
 }
