@@ -19,7 +19,7 @@ namespace ReadAllCountries
             Countries.Insert(liliputIndex, liliput);
             Countries.RemoveAt(liliputIndex);
 
-            foreach (Country country in Countries.Take(10))
+            foreach (Country country in Countries.OrderBy(x=>x.Name))
             {
                 Console.WriteLine($"{country.Population}: {country.Name}");
             }
