@@ -19,7 +19,7 @@ namespace ReadAllCountries
             Countries.Insert(liliputIndex, liliput);
             Countries.RemoveAt(liliputIndex);
 
-            foreach (Country country in Countries.Take(10).OrderBy(x=>x.Name))
+            foreach (Country country in Countries.Take(20).Where(x=>!x.Name.Contains(',')))
             {
                 Console.WriteLine($"{country.Population}: {country.Name}");
             }
