@@ -13,25 +13,22 @@ namespace ReadAllCountries
             string filePath = @"C:\SolidCad\Learning\PluralSight_Courses\Beginning C# Collections\csharp-collections-beginning\Pop by Largest Final.csv";
             CsvReader reader = new CsvReader(filePath);
 
-            List<Country> Countries = reader.ReadAllCountries();
-            Country liliput = new Country("Liliput","LIL","somewhere",2000000);
-            int liliputIndex = Countries.FindIndex(x => x.Population < 2000000);
-            Countries.Insert(liliputIndex, liliput);
-            Countries.RemoveAt(liliputIndex);
+           Dictionary<string,List<Country>> Countries = reader.ReadAllCountries();
 
-            var filteredCountries = Countries.Where(x =>!x.Name.Contains(','));//.Take(20)
-            var filteredCountries2 = from country in Countries
-                                     where !country.Name.Contains(',')
-                                     select country;
+            foreach (string region in Countries.Keys)
+                Console.WriteLine(region);
 
-            foreach (Country country in filteredCountries2)
+            Console.Write("Which of the above region do you want? ");
+            string chosenregion = Console.ReadLine();
+
+            if(Countries.ContainsKey(chosenregion))
             {
-                Console.WriteLine($"{country.Population}: {country.Name}");
+                foreach (Country country in Countries[chosenregion].Take(10))
+                    Console.WriteLine($"{country.Population}:{country.Name}");
             }
-            
-            for(int i=12; i<=14; i++)
+            else
             {
-                Console.WriteLine(Countries[i].Name);
+                Console.WriteLine("That is not a valid region.");
             }
         }
     }
